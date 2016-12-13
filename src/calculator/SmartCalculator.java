@@ -347,13 +347,28 @@ public class SmartCalculator extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnDotActionPerformed
 
     private void jBtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddActionPerformed
-        operator = '+';   
         if (firstOperand == 0)
         {
-            firstOperand = Double.parseDouble(displayResult);
-            displayResult += operator;
-            calcDisplayTextField.setText(displayResult);
+            firstOperand = Double.parseDouble(displayResult);   
         }
+        int displayLength = displayResult.length()-1;
+        
+        if (operator == '-' ||
+                operator == '*' ||
+                operator == '/')
+        { 
+            operator = '+';
+            String oldOperator = displayResult.substring(displayLength);
+            String newOperator = Character.toString('+');
+            
+            displayResult = displayResult.replace(oldOperator, newOperator);
+        }
+        else{
+             operator = '+'; 
+            displayResult += operator;
+        }
+       
+        calcDisplayTextField.setText(displayResult);
     }//GEN-LAST:event_jBtnAddActionPerformed
 
     private void jBtnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEqualActionPerformed
@@ -412,39 +427,86 @@ public class SmartCalculator extends javax.swing.JFrame {
             case '\0':
                 result = 0;
         }
-        firstOperand = 0;
+        firstOperand = result;
         secondOperand = 0;
+        displayResult = "" + firstOperand;
         calcDisplayTextField.setText(Double.toString(result));
     }//GEN-LAST:event_jBtnEqualActionPerformed
 
     private void jBtnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSubtractActionPerformed
-        operator = '-';   
+      
         if (firstOperand == 0)
         {
-            firstOperand = Double.parseDouble(displayResult);
-            displayResult += operator;
-            calcDisplayTextField.setText(displayResult);
+            firstOperand = Double.parseDouble(displayResult);   
         }
+        int displayLength = displayResult.length()-1;
+        
+        if (operator == '+' ||
+                operator == '*' ||
+                operator == '/')
+        { 
+            operator = '-'; 
+            String oldOperator = displayResult.substring(displayLength);
+            String newOperator = Character.toString(operator);
+            
+            displayResult = displayResult.replace(oldOperator, newOperator);
+        }
+        else
+        {
+            operator = '-'; 
+            displayResult += operator;
+        }
+        calcDisplayTextField.setText(displayResult);
     }//GEN-LAST:event_jBtnSubtractActionPerformed
 
     private void jBtnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMultiplyActionPerformed
-        operator = '*';
         if (firstOperand == 0)
         {
-            firstOperand = Double.parseDouble(displayResult);
-            displayResult += operator;
-            calcDisplayTextField.setText(displayResult);
+            firstOperand = Double.parseDouble(displayResult);   
         }
+        int displayLength = displayResult.length()-1;
+        
+        if (operator == '+' ||
+                operator == '-' ||
+                operator == '/')
+        { 
+            operator = '*'; 
+            String oldOperator = displayResult.substring(displayLength);
+            String newOperator = Character.toString(operator);
+            
+            displayResult = displayResult.replace(oldOperator, newOperator);
+        }
+        else
+        {
+            operator = '*'; 
+            displayResult += operator;
+        }
+        calcDisplayTextField.setText(displayResult);
     }//GEN-LAST:event_jBtnMultiplyActionPerformed
 
     private void jBtnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDivideActionPerformed
-        operator = '/';
         if (firstOperand == 0)
         {
-            firstOperand = Double.parseDouble(displayResult);
-            displayResult += operator;
-            calcDisplayTextField.setText(displayResult);
+            firstOperand = Double.parseDouble(displayResult);   
         }
+        int displayLength = displayResult.length()-1;
+        
+        if (operator == '+' ||
+                operator == '*' ||
+                operator == '-')
+        { 
+            operator = '/'; 
+            String oldOperator = displayResult.substring(displayLength);
+            String newOperator = Character.toString(operator);
+            
+            displayResult = displayResult.replace(oldOperator, newOperator);
+        }
+        else
+        {
+            operator = '/'; 
+            displayResult += operator;
+        }
+        calcDisplayTextField.setText(displayResult);
     }//GEN-LAST:event_jBtnDivideActionPerformed
 
     private void jBtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnClearActionPerformed
