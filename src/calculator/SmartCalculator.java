@@ -25,6 +25,7 @@ public class SmartCalculator extends javax.swing.JFrame {
      */
     public SmartCalculator() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -54,13 +55,15 @@ public class SmartCalculator extends javax.swing.JFrame {
         jBtnDot = new javax.swing.JButton();
         jBtnAdd = new javax.swing.JButton();
         jBtnEqual = new javax.swing.JButton();
+        jBtnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
         setFont(new java.awt.Font("Carlito", 0, 14)); // NOI18N
         setLocation(new java.awt.Point(0, 0));
+        setPreferredSize(new java.awt.Dimension(200, 200));
         setResizable(false);
-        setSize(new java.awt.Dimension(200, 200));
+        setSize(new java.awt.Dimension(500, 500));
 
         calcDisplayTextField.setEditable(false);
         calcDisplayTextField.setFont(new java.awt.Font("Carlito", 0, 14)); // NOI18N
@@ -74,7 +77,7 @@ public class SmartCalculator extends javax.swing.JFrame {
         getContentPane().add(calcDisplayTextField, java.awt.BorderLayout.NORTH);
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.setLayout(new java.awt.GridLayout(4, 4));
+        jPanel1.setLayout(new java.awt.GridLayout(5, 4));
 
         jBtn7.setText("7");
         jBtn7.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +206,14 @@ public class SmartCalculator extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jBtnEqual);
+
+        jBtnClear.setText("C");
+        jBtnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnClearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBtnClear);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
 
@@ -398,6 +409,8 @@ public class SmartCalculator extends javax.swing.JFrame {
             case '/':
                 result = firstOperand / secondOperand;
                 break;
+            case '\0':
+                result = 0;
         }
         firstOperand = 0;
         secondOperand = 0;
@@ -433,6 +446,15 @@ public class SmartCalculator extends javax.swing.JFrame {
             calcDisplayTextField.setText(displayResult);
         }
     }//GEN-LAST:event_jBtnDivideActionPerformed
+
+    private void jBtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnClearActionPerformed
+        operator = '\0';
+        firstOperand = 0;
+        secondOperand = 0;
+        result = 0;
+        displayResult = "0";
+        calcDisplayTextField.setText("0");
+    }//GEN-LAST:event_jBtnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -483,6 +505,7 @@ public class SmartCalculator extends javax.swing.JFrame {
     private javax.swing.JButton jBtn8;
     private javax.swing.JButton jBtn9;
     private javax.swing.JButton jBtnAdd;
+    private javax.swing.JButton jBtnClear;
     private javax.swing.JButton jBtnDivide;
     private javax.swing.JButton jBtnDot;
     private javax.swing.JButton jBtnEqual;
