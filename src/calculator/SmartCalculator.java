@@ -7,24 +7,26 @@ package calculator;
 
 /**
  *
- * @author Lanaya
+ * @author Muna Gurung
  */
 public class SmartCalculator extends javax.swing.JFrame {
-    
+
     /**
      * Variables to hold operands, operator, calculator display and calculated
      * result
      */
     private double firstOperand, secondOperand;
-    private char operator;
-    private String displayResult = "0";
-    private double result = 0;
-    
+    private char operator; // +, -, /, *
+    private String displayResult = "0"; // the text to be displayed on the calc
+    private double result = 0; // the calculated result
+
     /**
      * Creates new form SmartCalculator
      */
     public SmartCalculator() {
         initComponents();
+
+        // position the calc. to the centre of the screen
         setLocationRelativeTo(null);
     }
 
@@ -224,194 +226,209 @@ public class SmartCalculator extends javax.swing.JFrame {
         calcDisplayTextField.setText(displayResult);
     }//GEN-LAST:event_calcDisplayTextFieldActionPerformed
 
-    private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
-        if(displayResult == "0")
-        {
-            displayResult = "7";
-        }
-        else
-        {
-            displayResult += "7";
+    /**
+     * This method works out the text to be displayed on the calculator
+     *
+     * @param numberEntered the number clicked by the user
+     */
+    private void setDisplayResult(int numberEntered) {
+        if ("0".equals(displayResult)
+                || "0.0".equals(displayResult)) {
+            displayResult = String.valueOf(numberEntered);
+        } else {
+            displayResult += String.valueOf(numberEntered);
         }
         calcDisplayTextField.setText(displayResult);
+    }
+
+    /**
+     * This method works out the text to be displayed on the calculator
+     *
+     * @param stringEntered the dot string clicked by the user
+     */
+    private void setDisplayResult(String stringEntered) {
+        if ("0".equals(displayResult)
+                || "0.0".equals(displayResult)) {
+            displayResult = String.valueOf(stringEntered);
+        } else {
+            displayResult += String.valueOf(stringEntered);
+        }
+        calcDisplayTextField.setText(displayResult);
+    }
+
+    private void jBtn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn7ActionPerformed
+        setDisplayResult(7);
     }//GEN-LAST:event_jBtn7ActionPerformed
 
     private void jBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn8ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "8";
-        }
-        else
-        {
-            displayResult += "8";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(8);
     }//GEN-LAST:event_jBtn8ActionPerformed
 
     private void jBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn9ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "9";
-        }
-        else
-        {
-            displayResult += "9";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(9);
     }//GEN-LAST:event_jBtn9ActionPerformed
 
     private void jBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn4ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "4";
-        }
-        else
-        {
-            displayResult += "4";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(4);
     }//GEN-LAST:event_jBtn4ActionPerformed
 
     private void jBtn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn5ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "5";
-        }
-        else
-        {
-            displayResult += "5";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(5);
     }//GEN-LAST:event_jBtn5ActionPerformed
 
     private void jBtn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn6ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "6";
-        }
-        else
-        {
-            displayResult += "6";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(6);
     }//GEN-LAST:event_jBtn6ActionPerformed
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "1";
-        }
-        else
-        {
-            displayResult += "1";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(1);
     }//GEN-LAST:event_jBtn1ActionPerformed
 
     private void jBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn2ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "2";
-        }
-        else
-        {
-            displayResult += "2";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(2);
     }//GEN-LAST:event_jBtn2ActionPerformed
 
     private void jBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn3ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "3";
-        }
-        else
-        {
-            displayResult += "3";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(3);
     }//GEN-LAST:event_jBtn3ActionPerformed
 
     private void jBtn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn0ActionPerformed
-        if (displayResult == "0") {
-            displayResult = "0";
-        }
-        else
-        {
-            displayResult += "0";
-        }
-        calcDisplayTextField.setText(displayResult);
+        setDisplayResult(0);
     }//GEN-LAST:event_jBtn0ActionPerformed
 
     private void jBtnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDotActionPerformed
-        if (displayResult == "0") {
-            displayResult = ".";
-        }
-        else
-        {
-            displayResult += ".";
-        }
-        calcDisplayTextField.setText(displayResult);
+        addDot();
     }//GEN-LAST:event_jBtnDotActionPerformed
 
-    private void jBtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddActionPerformed
-        if (firstOperand == 0)
-        {
-            firstOperand = Double.parseDouble(displayResult);   
+    /**
+     * This method makes sure that duplicate dot is not used in the calculation.
+     * For example: "2.." is not allowed. When the dots are pressed one after
+     * the other, only one dot is used. So, the user is showed "2." instead of
+     * "2..".
+     */
+    private void addDot() {
+        if (!displayResult.endsWith(".")) {
+            setDisplayResult(".");
         }
-        int displayLength = displayResult.length()-1;
-        
-        if (operator == '-' ||
-                operator == '*' ||
-                operator == '/')
-        { 
-            operator = '+';
-            String oldOperator = displayResult.substring(displayLength);
-            String newOperator = Character.toString('+');
-            
-            displayResult = displayResult.replace(oldOperator, newOperator);
+    }
+
+    /**
+     * This method sets the value for first operand
+     */
+    private void setFirstOperand() {
+        if (firstOperand == 0) {
+            firstOperand = Double.parseDouble(displayResult);
         }
-        else{
-             operator = '+'; 
+    }
+
+    /**
+     * This method sets the value for second operand
+     */
+    private void setSecondOperand() {
+        int operatorIndex = 0;
+
+        /*
+        * Check that the user has a number entered before pressing equal.
+        * Then get the operator value that the user has entered in order to find
+        * the number entered after the operator.
+        * Store the number entered after operator as the second value in the
+        * secondOperand variable.
+         */
+        if (!displayResult.endsWith(Character.toString('+')) && operator == '+') {
+            operatorIndex = displayResult.indexOf(Character.toString('+'));
+            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex + 1));
+//            System.out.println(displayResult + " len " + displayLength);
+//            System.out.println("opin " + operatorIndex);
+//            System.out.println(" sec " + secondOperand);
+        } else if (!displayResult.endsWith(Character.toString('-'))
+                && operator == '-') {
+            operatorIndex = displayResult.indexOf(Character.toString('-'));
+            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex + 1));
+        } else if (!displayResult.endsWith(Character.toString('*'))
+                && operator == '*') {
+            operatorIndex = displayResult.indexOf(Character.toString('*'));
+            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex + 1));
+        } else if (!displayResult.endsWith(Character.toString('/'))
+                && operator == '/') {
+            operatorIndex = displayResult.indexOf(Character.toString('/'));
+            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex + 1));
+        }
+    }
+
+    /**
+     * This method replaces the old operator with the new one if operator is
+     * clicked continuously without clicking a number first. For example: '2 +-'
+     * becomes '2-'. Here subtract was clicked after add button, hence this
+     * method will replace the operator with the latest clicked one.
+     *
+     * @param operator the operator entered by the user
+     */
+    private void replaceOperator(char operator) {
+        // get the length of the text displayed on the calculator
+        int displayLength = displayResult.length() - 1;
+
+        /* The old operator will be at the second last of the text, so get the 
+        * value of the operator by using the String's substring method
+         */
+        String oldOperator = displayResult.substring(displayLength);
+
+        /* The new operator will be the last one, the one that the user clicked
+        * at last
+         */
+        String newOperator = Character.toString(operator);
+
+        // replace the operator to show the correct calculation to the user
+        displayResult = displayResult.replace(oldOperator, newOperator);
+    }
+
+    /**
+     * This method makes sure that only one operator is displayed when two
+     * operators are entered subsequently. The last operator takes precedence
+     * over the previous operators and is used for the final calculation.
+     *
+     * @param operatorEntered the operator clicked by the user
+     */
+    private void checkOperator(char operatorEntered) {
+        // get the length of the text displayed on the calculator
+        int displayLength = displayResult.length() - 1;
+
+        /*
+        * The first if statement checks if an operator has not been used before
+        * or if a number has been clicked before operator. If yes, operator
+        * value is set with the operator entered by the user.
+        * The second if statement checks if an operator has been used before/
+        * has it's value set. If yes, then the user has clicked two operators so
+        * only the latest operator is used for the calculation.
+         */
+        if (operator == '\u0000'
+                || Character.isDigit(displayResult.charAt(displayLength))) {
+            operator = operatorEntered;
             displayResult += operator;
+        } else if (operator == '+'
+                || operator == '*'
+                || operator == '/'
+                || operator == '-') {
+            operator = operatorEntered;
+            replaceOperator(operator);
         }
-       
         calcDisplayTextField.setText(displayResult);
+    }
+
+
+    private void jBtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddActionPerformed
+        setFirstOperand();
+        checkOperator('+');
     }//GEN-LAST:event_jBtnAddActionPerformed
 
     private void jBtnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEqualActionPerformed
-        int displayLength = displayResult.length();
-        int operatorIndex = 0 ;
-        if (!displayResult.endsWith(Character.toString('+')) && operator == '+')
-        {
-            operatorIndex = displayResult.indexOf(Character.toString('+'));
-            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex+1));
-            System.out.println(displayResult + " len " + displayLength);
-            System.out.println("opin " + operatorIndex);    
-            System.out.println(" sec " + secondOperand);
-        }
-        else if (!displayResult.endsWith(Character.toString('-'))  
-                && operator == '-')
-        {
-            operatorIndex = displayResult.indexOf(Character.toString('-'));
-            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex+1));
-            System.out.println(displayResult + " len " + displayLength);
-            System.out.println("opin " + operatorIndex);    
-            System.out.println(" sec " + secondOperand);
-        }
-        else if (!displayResult.endsWith(Character.toString('*'))
-                 && operator == '*')
-        {
-            operatorIndex = displayResult.indexOf(Character.toString('*'));
-            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex+1));
-            System.out.println(displayResult + " len " + displayLength);
-            System.out.println("opin " + operatorIndex);    
-            System.out.println(" sec " + secondOperand);
-        }
-        else if (!displayResult.endsWith(Character.toString('/'))
-                 && operator == '/')
-        {
-            operatorIndex = displayResult.indexOf(Character.toString('/'));
-            secondOperand = Double.parseDouble(displayResult.substring(operatorIndex+1));
-            System.out.println(displayResult + " len " + displayLength);
-            System.out.println("opin " + operatorIndex);    
-            System.out.println(" sec " + secondOperand);;
-        }
-               
-        switch(operator)
-        {
+        // first operand is assigned value when an operator is clicked, so 
+        // assign the second operand by calling the set second operand method
+        // when equal is clicked
+        setSecondOperand();
+
+        // switch statement that does the calculation based on first and second
+        // operands
+        switch (operator) {
             case '+':
                 result = firstOperand + secondOperand;
                 break;
@@ -425,92 +442,39 @@ public class SmartCalculator extends javax.swing.JFrame {
                 result = firstOperand / secondOperand;
                 break;
             case '\0':
-                result = 0;
+                result = firstOperand;
         }
+
+        /* Assign result value to firstOperand and displayResult variable; and
+        * null secondOperand variable to prepare the calculator for next 
+        * consecutive calculation
+         */
         firstOperand = result;
         secondOperand = 0;
         displayResult = "" + firstOperand;
+
+        // display calculated result to the user
         calcDisplayTextField.setText(Double.toString(result));
     }//GEN-LAST:event_jBtnEqualActionPerformed
 
     private void jBtnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSubtractActionPerformed
-      
-        if (firstOperand == 0)
-        {
-            firstOperand = Double.parseDouble(displayResult);   
-        }
-        int displayLength = displayResult.length()-1;
-        
-        if (operator == '+' ||
-                operator == '*' ||
-                operator == '/')
-        { 
-            operator = '-'; 
-            String oldOperator = displayResult.substring(displayLength);
-            String newOperator = Character.toString(operator);
-            
-            displayResult = displayResult.replace(oldOperator, newOperator);
-        }
-        else
-        {
-            operator = '-'; 
-            displayResult += operator;
-        }
-        calcDisplayTextField.setText(displayResult);
+        setFirstOperand();
+        checkOperator('-');
     }//GEN-LAST:event_jBtnSubtractActionPerformed
 
     private void jBtnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnMultiplyActionPerformed
-        if (firstOperand == 0)
-        {
-            firstOperand = Double.parseDouble(displayResult);   
-        }
-        int displayLength = displayResult.length()-1;
-        
-        if (operator == '+' ||
-                operator == '-' ||
-                operator == '/')
-        { 
-            operator = '*'; 
-            String oldOperator = displayResult.substring(displayLength);
-            String newOperator = Character.toString(operator);
-            
-            displayResult = displayResult.replace(oldOperator, newOperator);
-        }
-        else
-        {
-            operator = '*'; 
-            displayResult += operator;
-        }
-        calcDisplayTextField.setText(displayResult);
+        setFirstOperand();
+        checkOperator('*');
     }//GEN-LAST:event_jBtnMultiplyActionPerformed
 
     private void jBtnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnDivideActionPerformed
-        if (firstOperand == 0)
-        {
-            firstOperand = Double.parseDouble(displayResult);   
-        }
-        int displayLength = displayResult.length()-1;
-        
-        if (operator == '+' ||
-                operator == '*' ||
-                operator == '-')
-        { 
-            operator = '/'; 
-            String oldOperator = displayResult.substring(displayLength);
-            String newOperator = Character.toString(operator);
-            
-            displayResult = displayResult.replace(oldOperator, newOperator);
-        }
-        else
-        {
-            operator = '/'; 
-            displayResult += operator;
-        }
-        calcDisplayTextField.setText(displayResult);
+        setFirstOperand();
+        checkOperator('/');
     }//GEN-LAST:event_jBtnDivideActionPerformed
 
     private void jBtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnClearActionPerformed
-        operator = '\0';
+        // set all the variables to null to prepare for new calculation
+        operator = '\u0000';
         firstOperand = 0;
         secondOperand = 0;
         result = 0;
@@ -532,16 +496,24 @@ public class SmartCalculator extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SmartCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmartCalculator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SmartCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmartCalculator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SmartCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmartCalculator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SmartCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SmartCalculator.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -551,7 +523,7 @@ public class SmartCalculator extends javax.swing.JFrame {
                 new SmartCalculator().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
