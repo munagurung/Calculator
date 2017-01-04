@@ -3,7 +3,7 @@
   <img src="https://github.com/munagurung/ProjectImages/blob/master/calculator/calc.png"/>
   <br>
   <strong>
-This is a simple calculator built using JAVA Swing which can do four types of calculations: addition, subtraction, multiplication and division.</strong>
+This is a simple calculator built using JAVA Swing which can do four types of calculations: addition, subtraction, multiplication and division on two operands only.</strong>
 </p>
 <br>
 <h3>Implemented functionalities:</h3>
