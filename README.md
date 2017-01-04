@@ -8,7 +8,7 @@ This is a simple calculator built using JAVA Swing which can do four types of ca
 <br>
 <h3>Implemented functionalities:</h3>
 <p>
-- It does calculation for two operands only. For example, 10.1 + 2.9.
+- It does calculation for two operands only. For example, 10.1 + 2.9. This results to 13.0.
 <br>
   <img src="https://github.com/munagurung/ProjectImages/blob/master/calculator/2operandadd.PNG"/>
   <br>
@@ -18,11 +18,11 @@ This is a simple calculator built using JAVA Swing which can do four types of ca
 - After the calculation of the two operand, the result can be used for next subsequent two operand operations. For example: 10.1 + 2.9 = 13. The result 13 can then be used for next operation, such as 13 * 2 = 26. 
   <br>
   <img src="https://github.com/munagurung/ProjectImages/blob/master/calculator/subsequentop.PNG"/>
+  <br>
+  <img src="https://github.com/munagurung/ProjectImages/blob/master/calculator/subsequentopresult.PNG"/>
 </p>
 <p>
 - Functionalities which restricts improper user input has been implemented. If a user inputs an operator more than one time, only the last entered operator will be used. For example, if a user clicks + then - operator, then the last entered operator which is - will be used for the calculation; the calculator display field will be updated with the correct operator. 
-<br>
-  <img src="https://github.com/munagurung/ProjectImages/blob/master/calculator/subsequentopresult.PNG"/>
 </p>
 <p>
 - Furthermore, a user can't abuse the calculator by clicking lots of dot/ decimal '.' value. Only, one dot will be used no matter how many times the user clicks the dot button.
